@@ -64,3 +64,6 @@
 | データベース | PostgreSQL |
 | インフラ | Render.com |
 | 開発環境 | Docker |
+
+## 画面遷移図
+Figma:https://www.figma.com/design/T8h8Ip2hjykp1Qred8czzz/DrinkCollection?node-id=0-1&t=SvPFI5qKG9nHtW3X-1
