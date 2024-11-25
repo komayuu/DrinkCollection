@@ -54,13 +54,22 @@
 * ブックマーク機能
 * SNS共有機能
 * 問い合わせリンク
+* 利用規約
+* プライバシーポリシー
+* お酒のカテゴリページ
+* お酒の詳細ページ
+* レスポンシブ対応
+* パスワード変更機能
 
 ## 機能の実装方針予定
 ### 一般的なCRUD以外の実装予定の機能についてそれぞれどのようなイメージ(使用するAPI)で実装する予定なのか現状考えているもので良いので教えてください。
 |カテゴリ|技術|
 |:-------:|:------|
 | フロントエンド | Rails 7.0.8.4, TailwindCSS, DaisyUI |
-| バックエンド | Rails 7.8.0.4 (Ruby 3.1.4) |
+| バックエンド | Rails 7.0.8.4 (Ruby 3.1.4) |
 | データベース | PostgreSQL |
 | インフラ | Render.com |
 | 開発環境 | Docker |
+
+## 画面遷移図
+Figma:https://www.figma.com/design/T8h8Ip2hjykp1Qred8czzz/DrinkCollection?node-id=0-1&t=mpuSaWUpAWyEGnsG-1
