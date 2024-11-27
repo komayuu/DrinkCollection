@@ -73,3 +73,7 @@
 
 ## 画面遷移図
 Figma:https://www.figma.com/design/T8h8Ip2hjykp1Qred8czzz/DrinkCollection?node-id=0-1&t=mpuSaWUpAWyEGnsG-1
+
+## ER図
+https://dbdiagram.io/d/6744aec7e9daa85acaa7ee29
+[![Image from Gyazo](https://i.gyazo.com/b3067a06784736378e579f77c67cea70.png)](https://gyazo.com/b3067a06784736378e579f77c67cea70)
