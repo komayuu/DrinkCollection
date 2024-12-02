@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .bg-top-image {
+    background-image: url("top.jpg");
+    background-size: cover; /* 画像を画面いっぱいに拡大 */
+    background-position: center; /* 画像を中央に配置 */
+  }
+}
