@@ -1,25 +1,26 @@
-<header class="absolute top-0 left-0 w-full text-white z-20">
+<header class="fixed top-0 left-0 w-full text-white z-20">
   <div class="container mx-auto px-4 py-4 flex items-end justify-between">
-    <!-- ロゴ (常にトップページに遷移)-->
+    <!-- ロゴ (常にトップページに遷移) -->
     <div class="flex items-end space-x-6">
-      <a href="/" class="text-xl font-bold">DrinkCollection</a>
+      <%= link_to "DrinkCollection", root_path, class: "text-xl font-bold" %>
 
       <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
       <nav class="flex space-x-4">
-        <a href="#" class="hover:text-gray-300">ビール</a>
-        <a href="#" class="hover:text-gray-300">ワイン</a>
-        <a href="#" class="hover:text-gray-300">日本酒</a>
-        <a href="#" class="hover:text-gray-300">焼酎</a>
-        <a href="#" class="hover:text-gray-300">カクテル</a>
-        <a href="#" class="hover:text-gray-300">etc.</a>
+        <%= link_to "ビール", "#", class: "hover:text-gray-300" %>
+        <%= link_to "ワイン", "#", class: "hover:text-gray-300" %>
+        <%= link_to "日本酒", "#", class: "hover:text-gray-300" %>
+        <%= link_to "焼酎", "#", class: "hover:text-gray-300" %>
+        <%= link_to "カクテル", "#", class: "hover:text-gray-300" %>
+        <%= link_to "etc.", "#", class: "hover:text-gray-300" %>
       </nav>
     </div>
 
     <!-- ナビゲーション(画面が大きい場合表示) -->
     <nav class="hidden md:flex space-x-4">
-      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">投稿作成</a>
-      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">マイページ</a>
-      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">ログアウト</a>
+      <%= link_to "投稿作成", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
+      <%= link_to "投稿一覧", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
+      <%= link_to "マイページ", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
+      <%= link_to "ログアウト", "#", method: :delete, class: "hover:text-gray-300" %>
     </nav>
 
     <!-- ハンバーガーメニュー(モバイル画面時に適用) -->
