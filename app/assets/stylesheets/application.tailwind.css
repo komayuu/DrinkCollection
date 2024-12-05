@@ -7,5 +7,6 @@
     background-image: url("top.jpg");
     background-size: cover; /* 画像を画面いっぱいに拡大 */
     background-position: center; /* 画像を中央に配置 */
+    background-attachment: fixed; /* 背景を固定 */
   }
 }

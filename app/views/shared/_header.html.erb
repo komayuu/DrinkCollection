@@ -1,0 +1,35 @@
+<header class="absolute top-0 left-0 w-full text-white z-20">
+  <div class="container mx-auto px-4 py-4 flex items-end justify-between">
+    <!-- ロゴ (常にトップページに遷移)-->
+    <div class="flex items-end space-x-6">
+      <a href="/" class="text-xl font-bold">DrinkCollection</a>
+
+      <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
+      <nav class="flex space-x-4">
+        <a href="#" class="hover:text-gray-300">ビール</a>
+        <a href="#" class="hover:text-gray-300">ワイン</a>
+        <a href="#" class="hover:text-gray-300">日本酒</a>
+        <a href="#" class="hover:text-gray-300">焼酎</a>
+        <a href="#" class="hover:text-gray-300">カクテル</a>
+        <a href="#" class="hover:text-gray-300">etc.</a>
+      </nav>
+    </div>
+
+    <!-- ナビゲーション(画面が大きい場合表示) -->
+    <nav class="hidden md:flex space-x-4">
+      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">投稿作成</a>
+      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">マイページ</a>
+      <a href="#" class="hover:text-gray-300" data-turbo-method="delete">ログアウト</a>
+    </nav>
+
+    <!-- ハンバーガーメニュー(モバイル画面時に適用) -->
+    <div class="md:hidden">
+      <button class="text-white focus:outline-none">
+        <!-- アイコン (Heroiconsを使用) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
