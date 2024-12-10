@@ -20,12 +20,12 @@
       <%= link_to "投稿作成", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
       <%= link_to "投稿一覧", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
       <%= link_to "マイページ", "#", class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
-      <%= link_to "ログアウト", "#", method: :delete, class: "hover:text-gray-300" %>
+      <%= link_to "ログアウト", logout_path, method: :delete, class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
     </nav>
 
     <!-- ハンバーガーメニュー(モバイル画面時に適用) -->
     <div class="md:hidden">
-      <button class="text-white focus:outline-none">
+      <button class="text-black focus:outline-none">
         <!-- アイコン (Heroiconsを使用) -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

@@ -1,6 +1,4 @@
-<%= render "shared/header" %>
-
-<!-- ログインレイアウト -->
+<!-- 新規登録レイアウト -->
 <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
   <div class="max-w-md w-full bg-white p-8 shadow-lg rounded-md">
     <h1 class="text-4xl font-bold text-center mb-6">新規登録</h1>
@@ -23,7 +21,7 @@
       </div>
       <%= form.submit "新規登録", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
     <% end %>
-    <!-- Googleログイン -->
+    <!-- Google認証 -->
     <div class="mt-4">
       <%= link_to "Google認証", "#", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
     </div>
