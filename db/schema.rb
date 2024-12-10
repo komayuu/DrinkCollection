@@ -23,7 +23,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_06_162820) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "encrypted_password"
+    t.string "crypted_password"
+    t.string "salt"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false
