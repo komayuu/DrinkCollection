@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "static_pages#top"
+  resources :users, only: %i[new create show edit update]
+  get "login", to: "user_session#new"
+  post "login", to: "user_session#create"
+  delete "logout", to: "user_session#destroy"
 end
