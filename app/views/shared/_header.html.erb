@@ -17,7 +17,7 @@
 
     <!-- ナビゲーション(画面が大きい場合表示) -->
     <nav class="hidden md:flex space-x-4">
-      <%= link_to "投稿作成", "#", class: "hover:text-gray-300" %>
+      <%= link_to "投稿作成", new_post_path, class: "hover:text-gray-300" %>
       <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
       <%= link_to "マイページ", "#", class: "hover:text-gray-300" %>
       <%= link_to "ログアウト", logout_path, method: :delete, class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
