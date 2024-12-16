@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # ユーザー処理
   resources :users, only: %i[new create show edit update]
   # 投稿一覧、投稿作成
-  resources :posts, only: %i[index new create]
+  resources :posts, only: %i[index new create show]
   # ログインアウト処理
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
