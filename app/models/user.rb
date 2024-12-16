@@ -13,4 +13,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   # 属性の値が一意であり重複していないこと（nil は除く）
   validates :reset_password_token, uniqueness: true, allow_nil: true
+
+  has_many :posts, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 end
