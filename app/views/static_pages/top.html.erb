@@ -1,6 +1,14 @@
 <div class="min-h-screen bg-top-image flex flex-col items-center justify-center relative">
   <!-- オーバーレイ -->
-  <div class="absolute inset-0 bg-white opacity-50 z-0"></div>  
+  <div class="absolute inset-0 bg-white opacity-50 z-0"></div>
+
+  <!-- フラッシュメッセージ -->
+  <% flash.each do |message_type, message| %>
+    <div class="p-4 mb-4 text-sm text-white rounded-lg 
+                <%= message_type == 'success' ? 'bg-green-500' : 'bg-red-500' %>">
+      <%= message %>
+    </div>
+  <% end %>
 
   <!-- コンテンツ -->
   <div class="relative z-10 text-center">

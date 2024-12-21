@@ -17,10 +17,10 @@
 
     <!-- ナビゲーション(画面が大きい場合表示) -->
     <nav class="hidden md:flex space-x-4">
-      <%= link_to "投稿作成", new_post_path, class: "hover:text-gray-300" %>
-      <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
-      <%= link_to "マイページ", "#", class: "hover:text-gray-300" %>
-      <%= link_to "ログアウト", logout_path, method: :delete, class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
+      <%= link_to t("header.create_post"), new_post_path, class: "hover:text-gray-300" %>
+      <%= link_to t("header.post_index"), posts_path, class: "hover:text-gray-300" %>
+      <%= link_to t("header.my_page"), "#", class: "hover:text-gray-300" %>
+      <%= link_to t("header.logout"), logout_path, method: :delete, class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
     </nav>
 
     <!-- ハンバーガーメニュー(モバイル画面時に適用) -->
