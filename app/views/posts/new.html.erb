@@ -1,18 +1,6 @@
 <div class="container mx-auto px-4">
   <div class="max-w-4xl mx-auto">
     <h1 class="text-2xl font-bold mb-6">投稿作成</h1>
-    <%= form_with model: @post, class: "space-y-6" do |form| %>
-      <div>
-        <%= form.label :title, nil, class: "block text-lg font-medium text-gray-700" %>
-        <%= form.text_field :title, class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
-      </div>
-      <div>
-        <%= form.label :body, nil, class: "block text-lg font-medium text-gray-700" %>
-        <%= form.text_area :body, rows: "10", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
-      </div>
-      <div>
-        <%= form.submit "ポスト", class: "inline-flex items-center px-4 py-2 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-      </div>
-    <% end %>
+    <%= render "form", post: @post %> 
   </div>
 </div>

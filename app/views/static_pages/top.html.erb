@@ -5,7 +5,7 @@
   <!-- フラッシュメッセージ -->
   <% flash.each do |message_type, message| %>
     <div class="p-4 mb-4 text-sm text-white rounded-lg 
-                <%= message_type == 'success' ? 'bg-green-500' : 'bg-red-500' %>">
+      <%= message_type == 'success' ? 'bg-green-500' : 'bg-red-500' %>">
       <%= message %>
     </div>
   <% end %>
