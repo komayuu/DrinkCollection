@@ -27,10 +27,16 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), success: "%{item}を更新しました", item: Post.model_name.human
+      redirect_to post_path(@post), success: "投稿を更新しました"
     else
       flash.now[:danger] = "更新出来ませんでした"
       render :edit, status: :unprocessable_entity
+    end
+
+    def destroy
+      post = current_user.posts.find(params[:id])
+      post.destroy!
+      redirect_to posts_path, success: "投稿を削除しました", status: :see_other
     end
   end
 
