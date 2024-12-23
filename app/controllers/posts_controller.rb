@@ -17,7 +17,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
+    if @post.nil?
+      flash[:aleat] = "お探しの投稿はありません"
+      redirect_to posts_path
+    end
   end
 
   def edit
