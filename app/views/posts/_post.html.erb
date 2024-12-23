@@ -1,7 +1,9 @@
 <div id="post-id-<%= post.id %>" class="bg-white shadow-md rounded-lg overflow-hidden flex">
   <!-- 画像 -->
   <div class="w-48 h-48 flex-shrink-0">
-    <%= image_tag "post_placeholder.png", class: "w-48 h-48 object-cover" %>
+    <%= link_to post_path(post), class: "block" do %>
+      <%= image_tag "post_placeholder.png", class: "w-48 h-48 object-cover" %>
+    <% end %>
   </div>
   <!-- コンテンツ -->
   <div class="p-4 flex-1">
