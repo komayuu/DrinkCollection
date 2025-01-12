@@ -1,10 +1,10 @@
 <div class="container mx-auto pt-6">
-  <!-- 投稿一覧 -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <% if @posts.present? %>
-      <%= render @posts %> 
-    <% else %>
-      <div class="text-center col-span-full text-gray-600">投稿がありません</div>
-    <% end %>
+    <!-- 投稿一覧 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% if @posts.present? %>
+        <%= render @posts %> 
+      <% else %>
+        <div class="text-center col-span-full text-gray-600">投稿がありません</div>
+      <% end %>
+    </div>
   </div>
-</div>
