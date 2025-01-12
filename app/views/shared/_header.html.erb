@@ -6,12 +6,12 @@
 
       <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
       <nav class="flex space-x-4">
-        <%= link_to "ビール", "#", class: "hover:text-gray-300" %>
-        <%= link_to "ワイン", "#", class: "hover:text-gray-300" %>
-        <%= link_to "日本酒", "#", class: "hover:text-gray-300" %>
-        <%= link_to "焼酎", "#", class: "hover:text-gray-300" %>
-        <%= link_to "カクテル", "#", class: "hover:text-gray-300" %>
-        <%= link_to "etc.", "#", class: "hover:text-gray-300" %>
+        <%= link_to "ビール", category_path("beer"), class: "hover:text-gray-300" %>
+        <%= link_to "ワイン", category_path("wine"), class: "hover:text-gray-300" %>
+        <%= link_to "日本酒", category_path("nihonshu"), class: "hover:text-gray-300" %>
+        <%= link_to "焼酎", category_path("shochu"), class: "hover:text-gray-300" %>
+        <%= link_to "カクテル", category_path("cocktail"), class: "hover:text-gray-300" %>
+        <%= link_to "etc.", category_path("etc"), class: "hover:text-gray-300" %>
       </nav>
     </div>
 
