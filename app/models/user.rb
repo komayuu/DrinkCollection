@@ -16,8 +16,14 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :drinks
 
   def own?(object)
     id == object&.user_id
+  end
+
+  # 管理者かどうか判定する
+  def admin?
+    is_admin
   end
 end
