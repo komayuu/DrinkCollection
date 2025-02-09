@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
   delete "/logout", to: "user_sessions#destroy"
+  # 管理者専用ページ設定
+  namespace :admin do
+    resources :drinks, only: [:index, :new, :create]
+  end
 end

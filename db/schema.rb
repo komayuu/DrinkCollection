@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_05_075018) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_16_183604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.float "alcohol", null: false
+    t.string "drink_image", null: false
+    t.string "drink_type", null: false
+    t.text "mixing_instructions"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "category"
+    t.index ["user_id"], name: "index_drinks_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
@@ -39,8 +53,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_05_075018) do
     t.datetime "reset_password_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "drinks", "users"
   add_foreign_key "posts", "users"
 end
