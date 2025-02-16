@@ -30,7 +30,6 @@ Rails.application.config.sorcery.configure do |config|
   # Default: `true`
   #
   # config.remember_me_httponly =
-  config.remember_me_token_expires_after = 2.weeks
 
   # Set token randomness. (e.g. user activation tokens)
   # The length of the result string is about 4/3 of `token_randomness`.
