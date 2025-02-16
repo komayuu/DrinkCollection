@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:remember_me]
+Rails.application.config.sorcery.submodules = []
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -30,7 +30,6 @@ Rails.application.config.sorcery.configure do |config|
   # Default: `true`
   #
   # config.remember_me_httponly =
-  config.remember_me_token_expires_after = 2.weeks
 
   # Set token randomness. (e.g. user activation tokens)
   # The length of the result string is about 4/3 of `token_randomness`.
