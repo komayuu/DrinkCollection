@@ -4,10 +4,9 @@ class UserSessionsController < ApplicationController
   def new; end
 
   def create
-    @user = login(params[:email], params[:password], params[:remember_me])
+    @user = login(params[:email], params[:password])
 
     if @user
-      remember_me! if params[:remember_me] == "1" # チェックボックスがオンの時remember_meを有効化
       redirect_to root_path, success: "ログインしました"
     else
       flash.now[:danger] = "ログインに失敗しました"
