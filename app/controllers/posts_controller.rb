@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_ogp, only: [:show]
+
   def index
     @posts = Post.includes(:user)
   end
@@ -36,17 +38,27 @@ class PostsController < ApplicationController
       flash.now[:danger] = "更新出来ませんでした"
       render :edit, status: :unprocessable_entity
     end
+  end
 
-    def destroy
-      post = current_user.posts.find(params[:id])
-      post.destroy!
-      redirect_to posts_path, success: "投稿を削除しました", status: :see_other
-    end
+  def destroy
+    post = current_user.posts.find(params[:id])
+    post.destroy!
+    redirect_to posts_path, success: "投稿を削除しました", status: :see_other
   end
 
     private
 
   def post_params
     params.require(:post).permit(:title, :body, :post_image, :post_image_cache)
+  end
+
+  def set_ogp
+    @post = Post.find(params[:id])
+    @ogp = {
+      title: @post.title,
+      description: @post.body.truncate(100),
+      image: @post.post_image.url || asset_path("default-ogp.png"),
+      url: request.original_url
+    }
   end
 end
