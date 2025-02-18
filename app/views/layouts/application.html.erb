@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DrinkCollection</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <title><%= content_for?(:title) ? yield(:title) : "DrinkCollection" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <!-- OGP設定 -->
+  <meta property="og:title" content="<%= yield(:og_title) %>">
+  <meta property="og:description" content="<%= yield(:og_description) %>">
+  <meta property="og:image" content="<%= image_url('ogp-image.png') %>">
+  <meta property="og:url" content="<%= content_for?(:og_url) ? yield(:og_url) : request.original_url %>">
+  <meta property="og:type" content="article">
 
-    <%= ogp_meta_tags(@ogp || {}) %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-
-    <!-- OGP設定 -->
-    <meta property="og:title" content="DrinkCollection - お酒の掲示板">
-    <meta property="og:description" content="お酒の情報を共有し、あなたにぴったりの一杯を見つけよう！">
-    <meta property="og:image" content="<%= asset_path('ogp-image.png') %>">
-    <meta property="og:url" content="https://drinkcollection-1.onrender.com/">
-    <meta property="og:type" content="website">
-
-    <!-- Twitterカード設定 -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DrinkCollection - お酒の掲示板">
-    <meta name="twitter:description" content="お酒の情報を共有し、あなたにぴったりの一杯を見つけよう！">
-    <meta name="twitter:image" content="<%= asset_path('ogp-image.png') %>">
-  </head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+</head>
 
   <body>
     <% if logged_in? %>
