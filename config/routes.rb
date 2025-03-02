@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # 投稿一覧、投稿作成
   resources :posts, only: %i[index new create show edit update destroy]
   # カテゴリーページ
-  resources :categories, only: [:show], param: :category
+  resources :categories, only: %i[show], param: :category
+  resources :drinks, only: %i[show]
   # ログインアウト処理
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
@@ -14,6 +15,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "user_sessions#destroy"
   # 管理者専用ページ設定
   namespace :admin do
-    resources :drinks, only: [:index, :new, :create]
+    resources :drinks, only: %i[index new create]
   end
 end
