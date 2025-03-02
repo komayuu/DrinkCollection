@@ -1,0 +1,46 @@
+<div class="container mx-auto pt-5">
+  <div class="mb-3">
+    <!-- カテゴリー名 -->
+    <h2 class="text-2xl font-bold mb-4">
+      <%= params[:category].to_s.capitalize.presence %> の投稿一覧
+    </h2>
+
+    <!-- 投稿一覧 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% if @drinks.present? %>
+        <% @drinks.each do |drink| %>
+          <div id="drink-id-<%= drink.id %>" class="bg-white shadow-md rounded-lg overflow-hidden flex">
+            <!-- 画像 -->
+            <div class="w-48 h-48 flex-shrink-0">
+              <%= link_to "#", class: "block" do %>
+                <%= image_tag drink.drink_image_url, class: "w-48 h-48 object-cover" %>
+              <% end %>
+            </div>
+
+            <!-- コンテンツ -->
+            <div class="p-4 flex-1">
+              <div class="flex items-center justify-between">
+                <!-- タイトル -->
+                <h4 class="text-lg font-bold">
+                  <%= link_to drink.name, "#", class: "text-gray-800 hover:text-gray-600" %>
+                </h4>
+                <!-- アルコール度数 -->
+                <p class="text-sm text-gray-600">
+                  アルコール度数: <%= drink.alcohol %>%
+                </p>
+              </div>
+
+              <!-- 作り方 -->
+              <p class="mt-4 text-gray-700 leading-relaxed">
+                作り方: <%= drink.mixing_instructions %>
+              </p>
+
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="text-center col-span-full text-gray-600">投稿がありません</div>
+      <% end %>
+    </div>
+  </div>
+</div>
