@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
   delete "/logout", to: "user_sessions#destroy"
+  # Google認証
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
+
   # 管理者専用ページ設定
   namespace :admin do
     resources :drinks, only: %i[index new create]
