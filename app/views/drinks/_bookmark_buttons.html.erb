@@ -1,0 +1,7 @@
+<dev class="ml-auto">
+  <% if current_user.bookmarked_drinks.include?(drink) %>
+    <%= render "unbookmark", { drink: drink } %>
+  <% else %>
+    <%= render "bookmark", { drink: drink } %>
+  <% end %>
+</div>

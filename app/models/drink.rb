@@ -7,4 +7,7 @@ class Drink < ApplicationRecord
   validates :alcohol, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :drink_image, presence: true
   validates :category, presence: true
+
+  belongs_to :user
+  has_many :bookmarks, dependent: :destroy
 end
