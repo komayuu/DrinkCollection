@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create callback]
+  skip_before_action :require_login, only: %i[new create]
 
   def new; end
 
@@ -18,16 +18,5 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path, status: :see_other, success: "ログアウトしました"
-  end
-
-  def callback
-    user = login_from(:google)
-
-    if user
-      remenber_me! if params[:remember_me] == "1"
-      redirect_to root_path, success: "Googleアカウントでログインしました"
-    else
-      redirect_to login_path, danger: "Googleログインに失敗しました"
-    end
   end
 end
