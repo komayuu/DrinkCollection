@@ -1,0 +1,9 @@
+<div class='ml-auto'>
+  <% if current_user&.bookmark?(drink) %>
+    <%= render "categories/unbookmark", { drink: drink } %>
+  <% elsif current_user %>
+    <%= render "categories/bookmark", { drink: drink } %>
+  <% else %>
+    <link_to "ログインしてブックマーク", login_path, class: "text-blue-500 underline" %>
+  <% end %>
+</div>

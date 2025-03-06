@@ -17,4 +17,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :drinks, only: %i[index new create]
   end
+  # Drinkのブックマーク設定
+  resources :drinks, only: %i[index new create show edit update destroy] do
+    collection do
+      get :bookmarks
+    end
+  end
+    resources :bookmarks, only: %i[create destroy]
 end

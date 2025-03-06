@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :require_login, only: %i[show]
   
   def show
     category_name = params[:category].to_s
@@ -8,5 +8,6 @@ class CategoriesController < ApplicationController
     end
 
     @drinks = Drink.where(category: category_name, is_admin: true)
+    @bookmark_drinks = current_user&.bookmarked_drinks || []
   end
 end

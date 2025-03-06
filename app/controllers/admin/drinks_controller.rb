@@ -7,7 +7,7 @@ module Admin
     end
 
     def create
-      @drink = Drink.new(drink_params)
+      @drink = current_user.drinks.new(drink_params)
       @drink.is_admin = true
 
       if @drink.save

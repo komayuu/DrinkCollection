@@ -4,6 +4,7 @@ class MypagesController < ApplicationController
   def show
     @user = current_user
     @posts = @user.posts.order(created_at: :desc) # ユーザーの投稿一覧
+    @bookmarked_drinks = current_user.bookmarked_drinks
   end
 
   def edit
