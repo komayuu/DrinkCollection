@@ -18,8 +18,8 @@
       <%= form.submit "ログイン", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
     <% end %>
     <!-- Googleログイン -->
-    <div class="mt-4">
-      <%= link_to "Googleログイン", "#", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+    <div class="mt-4 flex justify-center">
+      <%= link_to "Login with Google", auth_at_provider_path(provider: :google), class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
     </div>
   </div>
 </div>
