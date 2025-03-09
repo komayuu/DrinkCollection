@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create google_auth]
 
   def new; end
 
@@ -12,6 +12,19 @@ class UserSessionsController < ApplicationController
     else
       flash.now[:danger] = "ログインに失敗しました"
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def google_auth
+    auth = request.env["omniauth.auth"]
+    user = User.find_or_create_from_google(auth)
+    user.password_confirmation = user.password #パスワード確認を自動的に設定
+
+    if user
+      auto_login(user)
+      redirect_to root_path, success: "Googleでログインしました"
+    else
+      redirect_to new_user_session_path, danger: "Googleログインに失敗しました"
     end
   end
 

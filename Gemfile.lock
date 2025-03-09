@@ -366,6 +366,7 @@ DEPENDENCIES
   fog-aws
   jbuilder
   jsbundling-rails
+  omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)
