@@ -15,7 +15,9 @@
         <%= form.check_box :remember_me, value: "1", class: "mr-2" %>
         <%= form.label :remember_me, "ログイン状態を保存", class: "text-sm text-gray-700" %>
       </div>
-      <%= form.submit "ログイン", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+      <div class="text-center">
+        <%= form.submit "ログイン", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+      </div>
     <% end %>
     <!-- Googleログイン -->
     <div class="mt-4 flex justify-center">
