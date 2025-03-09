@@ -17,16 +17,18 @@ Rails.application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback"
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
-
   # 管理者専用ページ設定
   namespace :admin do
     resources :drinks, only: %i[index new create]
   end
   # Drinkのブックマーク設定
+  resources :bookmarks, only: %i[create destroy]
   resources :drinks, only: %i[index new create show edit update destroy] do
     collection do
       get :bookmarks
     end
   end
-    resources :bookmarks, only: %i[create destroy]
+  # 利用規約、プライバシーポリシー
+  get "pages/privacy_policy", to: "pages#privacy_policy", as: "privacy_policy"
+  get "pages/terms_of_service", to: "pages#terms_of_service", as: "terms_of_service"
 end
