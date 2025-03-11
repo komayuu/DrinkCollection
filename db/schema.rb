@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_11_144324) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_11_162850) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_11_144324) do
     t.integer "category"
     t.boolean "is_admin"
     t.integer "user_id"
+    t.integer "category_id"
   end
 
   create_table "posts", force: :cascade do |t|
