@@ -1,0 +1,10 @@
+<h1>検索結果</h1>
+
+<% @drinks.each do |drink| %>
+  <div class="drink-card">
+    <h2><%= drink.name %></h2>
+    <p><%= drink.description %></p>
+    <p><%= drink.alcohol %> %</p>
+    <p><%= drink.category %></p>
+  </div>
+<% end %>

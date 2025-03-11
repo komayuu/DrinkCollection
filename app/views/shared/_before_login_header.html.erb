@@ -29,6 +29,23 @@
       </nav>
     </div>
 
+    <!-- 検索フォーム -->
+    <div class="search-bar">
+      <%= search_form_for @q, url: drinks_path, method: :get, html: { class: "search-form" } do |form| %>
+        <div class="search-inputs">
+          <!-- 名前検索 -->
+          <%= form.text_field :name_cont, placeholder: "ドリンク名", class: "search-input px-4 py-2 border border-gray-300 rounded" %>
+          <!-- アルコール度数のプルダウン -->
+          <%= form.select :alcohol_eq, options_for_select([["0%", 0], ["1~10%", "1-10"], ["11~20", "11-20"], ["21~30", "21-30"], ["31~40", "31-40"], ["41~50", "41-50"], ["51~60", "51-60"], ["61~70", "61-70"], ["71~80", "71-80"], ["81~90", "81-90"], ["91~", "91-"]]), prompt: "アルコール度数" %>
+          <!-- カテゴリー選択 -->
+          <%= form.collection_select :category_id_eq, Category.all, :id, :name, prompt: "カテゴリー" %>
+          <!-- 検索ボタン -->
+          <%= form.submit "検索", class: "search-btn" %>
+        </div>
+      <% end %>
+    </div>
+
+
     <!-- ナビゲーション(画面が大きい場合表示) -->
     <nav class="hidden md:flex space-x-4">
       <%= link_to "新規登録", new_user_path, class: "hover:text-gray-300" %>
