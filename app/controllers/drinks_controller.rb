@@ -1,6 +1,11 @@
 class DrinksController < ApplicationController
   before_action :set_drink, only: %i[show edit update destroy]
 
+  def index
+    @q = Drink.ransack(params[:q])
+    @drinks = @q.result(distinct: true)
+  end
+  
   def show
     @drink = Drink.find(params[:id])
     @bookmarked_drinks = current_user.bookmarked_drinks || []

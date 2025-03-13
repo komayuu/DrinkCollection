@@ -1,0 +1,54 @@
+<div class="container mx-auto pt-5">
+  <div class="mb-3">
+    <!-- 検索結果のタイトル -->
+    <h2 class="text-2xl font-bold mb-4">
+      検索結果
+    </h2>
+
+    <!-- 投稿一覧 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <% if @drinks.present? %>
+        <% @drinks.each do |drink| %>
+          <div id="drink-id-<%= drink.id %>" class="bg-white shadow-md rounded-lg overflow-hidden flex">
+            <!-- 画像 -->
+            <div class="w-48 h-48 flex-shrink-0">
+              <%= link_to drink_path(drink), class: "block" do %>
+                <%= image_tag drink.drink_image_url, class: "w-48 h-48 object-cover" %>
+              <% end %>
+            </div>
+
+            <!-- コンテンツ -->
+            <div class="p-4 flex-1">
+              <div class="flex items-center justify-between">
+                <!-- タイトル -->
+                <h4 class="text-lg font-bold">
+                  <%= link_to drink.name, drink_path(drink), class: "text-gray-800 hover:text-gray-600" %>
+                </h4>
+                <div class="flex space-x-2">
+                  <% if current_user.own?(drink) %>
+                    <!-- 編集ボタン -->
+                    <%= link_to edit_drink_path(drink), id: "button-edit-#{drink.id}", class: "text-gray-500 hover:text-gray-700" do %>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                      </svg>
+                    <% end %>
+                  <% else %>
+                    <%= render "bookmark_buttons", { drink: drink } %>
+                  <% end %>
+                </div>
+              </div>
+              <!-- 本文 -->
+              <p class="mt-4 text-gray-700 leading-relaxed"><%= simple_format(drink.description) %></p>
+              <!-- アルコール度数 -->
+              <ul class="text-sm text-gray-600">
+                アルコール度数: <%= drink.alcohol %>%
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="text-center col-span-full text-gray-600">投稿がありません</div>
+      <% end %>
+    </div>
+  </div>
+</div>

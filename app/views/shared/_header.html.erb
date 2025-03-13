@@ -29,6 +29,24 @@
       </nav>
     </div>
 
+    <!-- 検索フォーム -->
+    <div class="search-bar">
+      <%= search_form_for @q, url: drinks_path, method: :get, html: { class: "search-form" } do |form| %>
+        <div class="search-inputs">
+          <!-- 名前検索 -->
+          <%= form.text_field :name_or_description_or_mixing_instructions_cont, placeholder: "ドリンク名", class: "search-input px-4 py-2 border border-gray-300 rounded" %>
+          <!-- 最低度数のプルダウン -->
+          <%= form.select :alcohol_gteq, options_for_select([["0%以上", 0.0], ["1%以上", 1.0], ["5%以上", 5.0], ["10%以上", 10.0], ["15%以上", 15.0], ["20%以上", 20.0], ["30%以上", 30.0], ["40%以上", 40.0], ["50%以上", 50.0]]), prompt: "最低度数" %>
+          <!-- 最高アルコール度数 -->
+          <%= form.select :alcohol_lteq, options_for_select([["5%以下", 5.0], ["10%以下", 10.0], ["15%以下", 15.0], ["20%以下", 20.0], ["30%以下", 30.0], ["40%以下", 40.0], ["50%以下", 50.0], ["60%以下", 60.0], ["70%以下", 70.0], ["80%以下", 80.0], ["90%以下", 90.0], ["100%以下", 100.0]]), prompt: "最高度数" %>
+          <!-- カテゴリー選択 -->
+          <%= form.select :category_id_eq, options_for_select(Category.order(:id).map { |c| [c.display_name, c.id] }, selected: params.dig(:q, :category_id_eq)), prompt: "カテゴリー" %>
+          <!-- 検索ボタン -->
+          <%= form.submit "検索", class: "search-btn bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <% end %>
+    </div>
+
     <!-- ナビゲーション(画面が大きい場合表示) -->
     <nav class="hidden md:flex space-x-4">
       <%= link_to t("header.create_post"), new_post_path, class: "hover:text-gray-300" %>
