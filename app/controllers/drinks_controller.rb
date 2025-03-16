@@ -4,6 +4,14 @@ class DrinksController < ApplicationController
   def index
     @q = Drink.ransack(params[:q])
     @drinks = @q.result(distinct: true)
+    search_keyword = params.dig(:q, :name_or_description_or_mixing_instructions_cont)
+    category_id = params.dig(:q, :category_id_eq) # 選択されたカテゴリーID
+    category_name = category_id.present? ? Category.find_by(id: category_id)&.name : nil
+    if search_keyword.present?
+      @rakuten_items = RakutenApi.search_items(search_keyword, category_name)
+    else
+      @rakuten_items = []
+    end
   end
   
   def show
