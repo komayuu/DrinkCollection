@@ -1,4 +1,5 @@
-<header class="fixed top-0 left-0 w-full text-black z-20">
+<div class="pt-16"></div>
+<header class="fixed top-0 left-0 w-full bg-amber-500 text-black z-20">
   <div class="container mx-auto px-4 py-4 flex items-end justify-between">
     <!-- ロゴ (常にトップページに遷移) -->
     <div class="flex items-end space-x-6">
@@ -6,21 +7,11 @@
 
       <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
       <nav class="flex space-x-4">
-        <%= link_to category_path("beer"), class: "hover:invert" do %>
-          <img src="/assets/beer.png" alt="ビール" class="h-6 w-auto">
-        <% end %>
-        <%= link_to category_path("wine"), class: "hover:invert" do %>
-          <img src="/assets/wine.png" alt="ワイン" class="h-6 w-auto">
-        <% end %>
-        <%= link_to category_path("nihonshu"), class: "hover:invert" do %>
-          <img src="/assets/nihonshu.png" alt="日本酒" class="h-6 w-auto">
-        <% end %>
-        <%= link_to category_path("shochu"), class: "hover:invert" do %>
-          <img src="/assets/shochu.png" alt="焼酎" class="h-6 w-auto">
-        <% end %>
-        <%= link_to category_path("cocktail"), class: "hover:invert" do %>
-          <img src="/assets/cocktail.png" alt="カクテル" class="h-6 w-auto">
-        <% end %>
+        <%= link_to "ビール", category_path("beer"), class: "hover:invert" %>
+        <%= link_to "ワイン", category_path("wine"), class: "hover:invert" %>
+        <%= link_to "日本酒", category_path("nihonshu"), class: "hover:invert" %>
+        <%= link_to "焼酎", category_path("shochu"), class: "hover:invert" %>
+        <%= link_to "カクテル", category_path("cocktail"), class: "hover:invert" %>
         <%= link_to category_path("etc"), class: "hover:invert" do %>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
@@ -47,24 +38,43 @@
       <% end %>
     </div>
 
-    <!-- ナビゲーション(画面が大きい場合表示) -->
-    <nav class="hidden md:flex space-x-4">
-      <%= link_to t("header.create_post"), new_post_path, class: "hover:text-gray-300" %>
-      <%= link_to t("header.post_index"), posts_path, class: "hover:text-gray-300" %>
-      <%= link_to t("header.my_page"), mypage_path, class: "hover:text-gray-300" %>
-      <%= link_to t("header.logout"), logout_path, method: :delete, class: "hover:text-gray-300", data: { turbo_method: "delete" } %>
-    </nav>
-
-    <!-- ハンバーガーメニュー(モバイル画面時に適用) -->
-    <div class="md:hidden">
-      <button class="text-black focus:outline-none">
+    <!-- ハンバーガーメニュー (画面サイズに関係なく適用) -->
+    <div class="relative">
+      <button id="menu-toggle" class="text-black focus:outline-none">
         <!-- アイコン (Heroiconsを使用) -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
+
+      <!-- メニュー内容 (デフォルトでは非表示) -->
+      <nav id="menu" class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+        <ul class="flex flex-col space-y-2 p-2">
+          <li><%= link_to t("header.create_post"), new_post_path, class: "block px-4 py-2 hover:bg-gray-200" %></li>
+          <li><%= link_to t("header.post_index"), posts_path, class: "block px-4 py-2 hover:bg-gray-200" %></li>
+          <li><%= link_to t("header.my_page"), mypage_path, class: "block px-4 py-2 hover:bg-gray-200" %></li>
+          <li><%= link_to t("header.logout"), logout_path, method: :delete, class: "block px-4 py-2 hover:bg-gray-200", data: { turbo_method: "delete" } %></li>
+        </ul>
+      </nav>
     </div>
+
+    <!-- ハンバーガーメニューの開閉を制御するJavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+
+        menuToggle.addEventListener("click", function() {
+          menu.classList.toggle("hidden");
+        });
+
+        // メニュー外をクリックすると閉じる
+        document.addEventListener("click", function(event) {
+          if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.add("hidden");
+          }
+        });
+      });
+    </script>
   </div>
 </header>
-
-<div class="pt-16"></div>
