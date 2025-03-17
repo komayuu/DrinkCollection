@@ -121,20 +121,27 @@
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("my-posts-tab").addEventListener("click", function() {
-      document.getElementById("my-posts").classList.remove("hidden");
-      document.getElementById("bookmarks").classList.add("hidden");
-      this.classList.add("border-blue-500", "text-black");
-      document.getElementById("bookmarks-tab").classList.remove("border-blue-500", "text-black");
-    });
+    document.addEventListener("turbo:load", function() {
+      const myPostsTab = document.getElementById("my-posts-tab");
+      const bookmarksTab = document.getElementById("bookmarks-tab");
+      const myPosts = document.getElementById("my-posts");
+      const bookmarks = document.getElementById("bookmarks");
 
-    document.getElementById("bookmarks-tab").addEventListener("click", function() {
-      document.getElementById("bookmarks").classList.remove("hidden");
-      document.getElementById("my-posts").classList.add("hidden");
-      this.classList.add("border-blue-500", "text-black");
-      document.getElementById("my-posts-tab").classList.remove("border-blue-500", "text-black");
+      if (myPostsTab && bookmarksTab && myPosts && bookmarks) {
+        myPostsTab.addEventListener("click", function() {
+          myPosts.classList.remove("hidden");
+          bookmarks.classList.add("hidden");
+          this.classList.add("border-blue-500", "text-black");
+          bookmarksTab.classList.remove("border-blue-500", "text-black");
+        });
+
+        bookmarksTab.addEventListener("click", function() {
+          bookmarks.classList.remove("hidden");
+          myPosts.classList.add("hidden");
+          this.classList.add("border-blue-500", "text-black");
+          myPostsTab.classList.remove("border-blue-500", "text-black");
+        });
+      }
     });
-  });
   </script>
 </div>

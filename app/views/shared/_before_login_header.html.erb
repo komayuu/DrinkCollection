@@ -27,57 +27,59 @@
           <!-- 名前検索 -->
           <%= form.text_field :name_or_description_or_mixing_instructions_cont, placeholder: "ドリンク名", class: "search-input px-4 py-2 border border-gray-300 rounded" %>
           <!-- 最低度数のプルダウン -->
-          <%= form.select :alcohol_gteq, options_for_select([["0%以上", 0.0], ["1%以上", 1.0], ["5%以上", 5.0], ["10%以上", 10.0], ["15%以上", 15.0], ["20%以上", 20.0], ["30%以上", 30.0], ["40%以上", 40.0], ["50%以上", 50.0]]), prompt: "最低度数" %>
-          <!-- 最高アルコール度数 -->
-          <%= form.select :alcohol_lteq, options_for_select([["5%以下", 5.0], ["10%以下", 10.0], ["15%以下", 15.0], ["20%以下", 20.0], ["30%以下", 30.0], ["40%以下", 40.0], ["50%以下", 50.0], ["60%以下", 60.0], ["70%以下", 70.0], ["80%以下", 80.0], ["90%以下", 90.0], ["100%以下", 100.0]]), prompt: "最高度数" %>
+          <%= form.select :alcohol_gteq, options_for_select([["0%以上", 0.0], ["1%以上", 1.0], ["5%以上", 5.0], ["10%以上", 10.0], ["15%以上", 15.0], ["20%以上", 20.0], ["30%以上", 30.0], ["40%以上", 40.0], ["50%以上", 50.0]], params.dig(:q, :alcohol_gteq)), prompt: "最低度数" %>
+          <!-- 最高度数のプルダウン -->
+          <%= form.select :alcohol_lteq, options_for_select([["5%以下", 5.0], ["10%以下", 10.0], ["15%以下", 15.0], ["20%以下", 20.0], ["30%以下", 30.0], ["40%以下", 40.0], ["50%以下", 50.0], ["60%以下", 60.0], ["70%以下", 70.0], ["80%以下", 80.0], ["90%以下", 90.0], ["100%以下", 100.0]], params.dig(:q, :alcohol_lteq)), prompt: "最高度数" %>
           <!-- カテゴリー選択 -->
           <%= form.select :category_id_eq, options_for_select(Category.order(:id).map { |c| [c.display_name, c.id] }, selected: params.dig(:q, :category_id_eq)), prompt: "カテゴリー" %>
           <!-- 検索ボタン -->
-          <%= form.submit "検索", class: "search-btn bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <%= form.submit "検索", class: "search-btn bg-indigo-700 hover:bg-gray-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
     </div>
 
     <!-- ハンバーガーメニュー (画面サイズに関係なく適用) -->
-<div class="relative">
-  <button id="menu-toggle" class="text-black focus:outline-none">
-    <!-- アイコン (Heroiconsを使用) -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
+    <div class="relative">
+      <button id="menu-toggle" class="text-black focus:outline-none">
+        <!-- アイコン (Heroiconsを使用) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-  <!-- メニュー内容 (デフォルトでは非表示) -->
-  <nav id="menu" class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
-    <ul class="flex flex-col space-y-2 p-2">
-      <li class="px-4 py-2">
-        <%= link_to "新規登録", new_user_path, class: "block text-black hover:bg-gray-100 rounded" %>
-      </li>
-      <li class="px-4 py-2">
-        <%= link_to t("header.login"), login_path, class: "block text-black hover:bg-gray-100 rounded" %>
-      </li>
-    </ul>
-  </nav>
-</div>
+      <!-- メニュー内容 (デフォルトでは非表示) -->
+      <nav id="menu" class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+        <ul class="flex flex-col space-y-2 p-2">
+          <li class="px-4 py-2">
+            <%= link_to "新規登録", new_user_path, class: "block text-black hover:bg-gray-100 rounded" %>
+          </li>
+          <li class="px-4 py-2">
+            <%= link_to t("header.login"), login_path, class: "block text-black hover:bg-gray-100 rounded" %>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-<!-- ハンバーガーメニューの開閉を制御するJavaScript -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
+    <!-- ハンバーガーメニューの開閉を制御するJavaScript -->
+    <script>
+      document.addEventListener("turbo:load", function() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
 
-    menuToggle.addEventListener("click", function() {
-      menu.classList.toggle("hidden");
-    });
+        if (menuToggle && menu) {
+          menuToggle.addEventListener("click", function() {
+            menu.classList.toggle("hidden");
+          });
 
-    // メニュー外をクリックすると閉じる
-    document.addEventListener("click", function(event) {
-      if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-        menu.classList.add("hidden");
-      }
-    });
-  });
-</script>
+          // メニュー外をクリックすると閉じる
+          document.addEventListener("click", function(event) {
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+              menu.classList.add("hidden");
+            }
+          });
+        }
+      });
+    </script>
   </div>
 </header>
 
