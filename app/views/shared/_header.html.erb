@@ -33,7 +33,7 @@
           <!-- カテゴリー選択 -->
           <%= form.select :category_id_eq, options_for_select(Category.order(:id).map { |c| [c.display_name, c.id] }, selected: params.dig(:q, :category_id_eq)), prompt: "カテゴリー" %>
           <!-- 検索ボタン -->
-          <%= form.submit "検索", class: "search-btn bg-indigo-700 hover:bg-gray-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <%= form.submit "検索", class: "search-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
     </div>
@@ -48,7 +48,7 @@
       </button>
 
       <!-- メニュー内容 (デフォルトでは非表示) -->
-      <nav id="menu" class="absolute left-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+      <nav id="menu" class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
         <ul class="flex flex-col space-y-2 p-2">
           <li><%= link_to t("header.create_post"), new_post_path, class: "block px-4 py-2 hover:bg-gray-200" %></li>
           <li><%= link_to t("header.post_index"), posts_path, class: "block px-4 py-2 hover:bg-gray-200" %></li>

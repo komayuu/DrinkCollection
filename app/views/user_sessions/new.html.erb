@@ -16,12 +16,20 @@
         <%= form.label :remember_me, "ログイン状態を保存", class: "text-sm text-gray-700" %>
       </div>
       <div class="text-center">
-        <%= form.submit "ログイン", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+        <%= form.submit "ログイン", class: "btn-center mb-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded" %>
       </div>
     <% end %>
+    <div class="flex items-center my-4">
+      <div class="flex-1 border-t border-gray-300"></div>
+      <span class="px-3 text-gray-500 text-sm">OR</span>
+      <div class="flex-1 border-t border-gray-300"></div>
+    </div>
     <!-- Googleログイン -->
     <div class="mt-4 flex justify-center">
-      <%= link_to "Login with Google", "/auth/google_oauth2", class: "btn-center mb-4 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to "/auth/google_oauth2", class: "flex text-center items-center bg-white border border-gray-300 rounded-md px-4 py-2 shadow-sm hover:shadow-md focus:outline-none" do %>
+        <%= image_tag "https://developers.google.com/identity/images/g-logo.png", alt: "Google logo", class: "w-6 h-6 mr-2" %>
+        <span class="text-gray-700 font-medium">Sign in with Google</span>
+      <% end %>
     </div>
   </div>
 </div>
