@@ -7,12 +7,12 @@
 
       <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
       <nav class="flex space-x-4">
-        <%= link_to "ビール", category_path("beer"), class: "hover:invert" %>
-        <%= link_to "ワイン", category_path("wine"), class: "hover:invert" %>
-        <%= link_to "日本酒", category_path("nihonshu"), class: "hover:invert" %>
-        <%= link_to "焼酎", category_path("shochu"), class: "hover:invert" %>
-        <%= link_to "カクテル", category_path("cocktail"), class: "hover:invert" %>
-        <%= link_to category_path("etc"), class: "hover:invert" do %>
+        <%= link_to "ビール", category_path(Category.find_by(name: "ビール").id), class: "hover:invert" %>
+        <%= link_to "ワイン", category_path(Category.find_by(name: "ワイン").id), class: "hover:invert" %>
+        <%= link_to "日本酒", category_path(Category.find_by(name: "日本酒").id), class: "hover:invert" %>
+        <%= link_to "焼酎", category_path(Category.find_by(name: "焼酎").id), class: "hover:invert" %>
+        <%= link_to "カクテル", category_path(Category.find_by(name: "カクテル").id), class: "hover:invert" %>
+        <%= link_to category_path(Category.find_by(name: "etc").id), class: "hover:invert" do %>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
           </svg>

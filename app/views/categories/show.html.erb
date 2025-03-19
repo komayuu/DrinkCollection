@@ -2,7 +2,7 @@
   <div class="mb-3">
     <!-- カテゴリー名 -->
     <h2 class="text-2xl font-bold mb-4">
-      <%= params[:category].to_s.capitalize.presence %> の投稿一覧
+      <%= Category.find_by(id: params[:category])&.category_name %> の投稿一覧
     </h2>
 
     <!-- 投稿一覧 -->
