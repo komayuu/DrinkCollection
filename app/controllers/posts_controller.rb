@@ -11,6 +11,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+
+    Rails.logger.info "post_params: #{post_params.inspect}"
+
     if @post.save
       redirect_to posts_path
     else
