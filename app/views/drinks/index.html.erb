@@ -9,18 +9,18 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <% if @drinks.present? %>
         <% @drinks.each do |drink| %>
+        <% next if drink.nil? %> <!-- drink が nil の場合はスキップ -->
           <div id="drink-id-<%= drink.id %>" class="bg-white shadow-md rounded-lg overflow-hidden flex">
-            <!-- 画像 -->
+          <!-- 画像 -->
             <div class="w-48 h-48 flex-shrink-0">
               <%= link_to drink_path(drink), class: "block" do %>
                 <%= image_tag drink.drink_image_url, class: "w-48 h-48 object-cover" %>
               <% end %>
             </div>
-
             <!-- コンテンツ -->
             <div class="p-4 flex-1">
               <div class="flex items-center justify-between">
-                <!-- タイトル -->
+              <!-- タイトル -->
                 <h4 class="text-lg font-bold">
                   <%= link_to drink.name, drink_path(drink), class: "text-gray-800 hover:text-gray-600" %>
                 </h4>
@@ -33,7 +33,7 @@
                       </svg>
                     <% end %>
                   <% else %>
-                    <%= render "bookmark_buttons", { drink: drink } %>
+                    <%= render "bookmark_buttons", drink: drink if drink.present? %>
                   <% end %>
                 </div>
               </div>
