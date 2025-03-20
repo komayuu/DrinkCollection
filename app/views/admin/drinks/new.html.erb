@@ -29,8 +29,12 @@
         </div>
 
         <div class="mb-4">
-          <%= form.label :category_id, "カテゴリー", class: "block text-sm font-medium text-gray-700" %>
-          <%= form.collection_select :category_id, @categories, :id, :name, prompt: "カテゴリーを選択", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+          <% if @categories.present? %>
+            <%= form.label :category_id, "カテゴリー", class: "block text-sm font-medium text-gray-700" %>
+            <%= form.collection_select :category_id, @categories, :id, :name, prompt: "カテゴリーを選択", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+          <% else %>
+            <p>カテゴリーがありません</p>
+          <% end %>
         </div>
 
         <div class="mb-4">

@@ -1,5 +1,6 @@
 module Admin
   class Admin::DrinksController < ApplicationController
+    before_action :require_admin
     before_action :set_categories, only: [:new, :create]
 
     def new
