@@ -1,7 +1,19 @@
 class DrinkImageUploader < CarrierWave::Uploader::Base
-  storage :file # 本番環境では :fog for AWS S3, 開発環境では :file
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
-  def extension_whitelist
+  def store_dir
+    "uploads/drink/drink_image"
+  end
+
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
+  def extension_allowlist
     %w(jpg jpeg png)
   end
 end
