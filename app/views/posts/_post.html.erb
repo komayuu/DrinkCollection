@@ -2,7 +2,7 @@
   <!-- 画像 -->
   <div class="w-48 h-48 flex-shrink-0">
     <%= link_to post_path(post), class: "block" do %>
-      <%= image_tag (post.post_image&.url.presence || "/assets/post_placeholder.png"), class: "w-48 h-48 object-cover" %>
+      <%= image_tag "https://yuseibucket.s3.amazonaws.com/uploads/post/post_image/IMG_3044.JPG", class: "w-48 h-48 object-cover" %>
     <% end %>
   </div>
   <!-- コンテンツ -->
