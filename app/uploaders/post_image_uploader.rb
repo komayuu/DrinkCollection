@@ -24,4 +24,8 @@ class PostImageUploader < CarrierWave::Uploader::Base
   def extension_allowlist
     %w(jpg jpeg gif png)
   end
+
+  def fog_public
+    true
+  end
 end
