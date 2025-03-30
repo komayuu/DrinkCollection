@@ -2,7 +2,6 @@
   <!-- 画像 -->
   <div class="w-48 h-48 flex-shrink-0">
     <%= link_to post_path(post), class: "block" do %>
-      <%= puts "DEBUG: #{post.post_image.url}" %>
       <%= image_tag post.post_image.url.presence || "/assets/post_placeholder.png", class: "w-48 h-48 object-cover" %>
     <% end %>
   </div>
