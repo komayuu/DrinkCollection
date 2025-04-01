@@ -1,8 +1,8 @@
 <div class="container mx-auto pt-5">
     <div class="max-w-4xl mx-auto mt-3 z-20">
-      <h1 class="text-2xl font-bold mb-3 mt-3">新しいドリンクの追加</h1>
+      <h1 class="text-2xl font-bold mb-3 mt-3">ドリンクの編集</h1>
 
-      <%= form_with model: @drink, url: admin_drinks_path, local: true do |form| %>
+      <%= form_with model: @drink, url: admin_drink_path(@drink), local: true do |form| %>
         <div class="mb-4">
           <%= form.label :name, "ドリンク名", class: "block text-sm font-medium text-gray-700" %>
           <%= form.text_field :name, class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="mb-4">
-          <%= form.submit "追加", class: "inline-flex items-center px-4 py-2 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+          <%= form.submit "更新する", class: "inline-flex items-center px-4 py-2 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
         </div>
       <% end %>
     </div>

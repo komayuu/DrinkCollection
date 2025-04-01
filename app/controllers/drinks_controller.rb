@@ -1,5 +1,5 @@
 class DrinksController < ApplicationController
-  before_action :set_drink, only: %i[show edit update destroy]
+  before_action :set_drink, only: %i[show destroy]
 
   def index
     @q = Drink.ransack(params[:q])
@@ -18,20 +18,6 @@ class DrinksController < ApplicationController
   def show
     @drink = Drink.find(params[:id])
     @bookmarked_drinks = current_user.bookmarked_drinks || []
-  end
-
-  # 編集フォームを表示
-  def edit
-    @drink # @drinkはbefore_actionで設定されたdrinks
-  end
-
-  # 更新処理
-  def update
-    if @drink.update(drink_params)
-      redirect_to @drink, success: 'ドリンク情報が更新されました。'
-    else
-      render :edit, status: :unprocessable_entity
-    end
   end
 
   # 削除処理

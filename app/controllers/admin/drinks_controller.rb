@@ -1,7 +1,7 @@
 module Admin
   class Admin::DrinksController < ApplicationController
     before_action :require_admin
-    before_action :set_categories, only: [:new, :create]
+    before_action :set_categories, only: [:new, :create, :edit]
     skip_before_action :require_login, only: %i[index]
 
     def new
@@ -25,6 +25,21 @@ module Admin
       else
         flash.now[:alert] = @drink.errors.full_messages.join(", ")
         render :new, status: :unprocessable_entity
+      end
+    end
+
+    def edit
+      @drink = Drink.find(params[:id])
+    end
+
+    def update
+      @drink = Drink.find(params[:id])
+      
+      if @drink.update(drink_params)
+        redirect_to admin_drinks_path, success: "ドリンク情報が更新されました。"
+      else
+        flash.now[:alert] = @drink.errors.full_messages.join(", ")
+        render :edit, status: :unprocessable_entity
       end
     end
 
