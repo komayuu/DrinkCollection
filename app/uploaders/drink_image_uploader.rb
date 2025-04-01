@@ -6,7 +6,7 @@ class DrinkImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "uploads/drink/drink_image"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   def cache_dir
@@ -14,6 +14,6 @@ class DrinkImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w(jpg jpeg png)
+    %w(jpg jpeg gif png)
   end
 end

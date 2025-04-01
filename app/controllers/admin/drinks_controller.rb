@@ -2,9 +2,15 @@ module Admin
   class Admin::DrinksController < ApplicationController
     before_action :require_admin
     before_action :set_categories, only: [:new, :create]
+    skip_before_action :require_login, only: %i[index]
 
     def new
       @drink = Drink.new
+    end
+
+    def index
+      @drinks = Drink.all
+      render "drinks/index"
     end
 
     def create
