@@ -131,15 +131,15 @@
         myPostsTab.addEventListener("click", function() {
           myPosts.classList.remove("hidden");
           bookmarks.classList.add("hidden");
-          this.classList.add("border-blue-500", "text-black");
-          bookmarksTab.classList.remove("border-blue-500", "text-black");
+          this.classList.add("text-black");
+          bookmarksTab.classList.remove("text-black");
         });
 
         bookmarksTab.addEventListener("click", function() {
           bookmarks.classList.remove("hidden");
           myPosts.classList.add("hidden");
-          this.classList.add("border-blue-500", "text-black");
-          myPostsTab.classList.remove("border-blue-500", "text-black");
+          this.classList.add("text-black");
+          myPostsTab.classList.remove("text-black");
         });
       }
     });

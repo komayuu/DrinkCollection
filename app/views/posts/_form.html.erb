@@ -3,12 +3,12 @@
   <!-- タイトル入力 -->
   <div>
     <%= form.label :title, "お酒名", class: "block text-lg font-medium text-gray-700" %>
-    <%= form.text_field :title, class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+    <%= form.text_field :title, placeholder: "30文字以内で入力してください", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
   </div>
   <!-- 本文入力 -->
   <div>
     <%= form.label :body, "コメント", class: "block text-lg font-medium text-gray-700" %>
-    <%= form.text_area :body, rows: "10", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+    <%= form.text_area :body, rows: "10", placeholder: "270文字以内で入力してください", class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
   </div>
   <!-- 画像アップロード -->
   <div>

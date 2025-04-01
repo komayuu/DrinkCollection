@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   # Google認証
   get "/auth/:provider/callback", to: "user_sessions#google_auth"
   get "/auth/failure", to: redirect("/")
-  # 管理者専用ページ設定
+  # 管理者専用設定
   namespace :admin do
-    resources :drinks, only: %i[index new create]
+    resources :drinks, only: %i[index new create edit update]
   end
   # Drinkのブックマーク設定
   resources :bookmarks, only: %i[create destroy]
