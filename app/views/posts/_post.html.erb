@@ -1,6 +1,7 @@
 <% content_for :og_title, post.title %>
-<% content_for :og_description, post.body.truncate(20) %>
+<% content_for :og_description, post.body.truncate(50) %>
 <% content_for :og_url, post_url(post) %>
+<% content_for :og_image, post.image_url.present? ? post.image_url : asset_path('ogp-image.png') %>
 
 <div id="post-id-<%= post.id %>" class="bg-white shadow-md rounded-lg overflow-hidden flex">
   <!-- 画像 -->

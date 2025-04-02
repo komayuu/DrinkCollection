@@ -7,7 +7,7 @@
     <!-- OGP設定 -->
     <meta property="og:title" content="<%= yield(:og_title) || 'Default Title' %>">
     <meta property="og:description" content="<%= yield(:og_description) || 'Default Description' %>">
-    <meta property="og:image" content="<%= image_url('ogp-image.png') %>">
+    <meta property="og:image" content="<%= asset_path('ogp-image.png') %>">
     <meta property="og:url" content="<%= yield(:og_url) || request.original_url %>">
     <meta property="og:type" content="article">
 
