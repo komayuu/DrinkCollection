@@ -1,7 +1,7 @@
+<% content_for :title, "#{@post.title} | DrinkCollection" %>
 <% content_for :og_title, @post.title %>
-<% content_for :og_description, @post.body.truncate(150) %>
+<% content_for :og_description, truncate(@post.body, length: 50) %>
 <% content_for :og_url, post_url(@post) %>
-<% content_for :og_image, @post.image_url.present? ? @post.image_url : asset_path('ogp-image.png') %>
 
 <div class="container mx-auto pt-5">
   <div class="mb-3">
