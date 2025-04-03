@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "DrinkCollection" %></title>
+  <meta charset="UTF-8"> 
+    <title>DrinkCollection</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
-    <!-- OGP設定 -->
-    <meta property="og:title" content="<%= content_for?(:og_title) ? yield(:og_title) : 'DrinkCollection' %>">
-    <meta property="og:description" content="<%= content_for?(:og_description) ? yield(:og_description) : 'お酒の情報を共有するサイトです。' %>">
-    <meta property="og:image" content="<%= image_url('ogp-image.png') %>">
-    <meta property="og:url" content="<%= content_for?(:og_url) ? yield(:og_url) : request.original_url %>">
-    <meta property="og:type" content="article">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= display_meta_tags(default_meta_tags) %>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DrinkCollection">
+    <meta name="twitter:description" content="お酒好きや興味のある方にぴったりのwebアプリ!">
+    <meta name="twitter:image" content="<%= image_url('ogp-image.png') %>">
+    <meta name="twitter:url" content="<%= request.original_url %>">
   </head>
 
   <body>
