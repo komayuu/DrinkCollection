@@ -1,7 +1,7 @@
-<% content_for :title, @post.title %>
+<!-- <% content_for :title, @post.title %>
 <% content_for :og_title, @post.title %>
 <% content_for :og_description, @post.body %>
-<% content_for :og_url, request.original_url %>
+<% content_for :og_url, request.original_url %> -->
 <div class="container mx-auto pt-5">
   <div class="mb-3">
     <div class="max-w-4xl mx-auto">
@@ -19,7 +19,7 @@
               <div class="flex justify-end space-x-4">
                 <!-- シェアボタン -->
                 <% share_url = post_url(@post) %>
-                <% share_text = "#{@post.title} - #{@post.body}" %>
+                <% share_text = "#{@post.title} - #{@post.body.truncate(50)}" %>
                 <a href="https://twitter.com/intent/tweet?url=<%= URI.encode_www_form_component(share_url) %>&text=<%= URI.encode_www_form_component(share_text) %>" 
                   target="_blank" 
                   rel="noopener noreferrer"
