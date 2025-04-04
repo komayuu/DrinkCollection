@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
     @drinks = Drink.where(category: category_name, is_admin: true)
     @bookmark_drinks = current_user&.bookmarked_drinks || []
     @category = Category.find_by(name: params[:category])
+    @categories = Category.page(params[:page]).per(20)
     @drinks = @category.drinks if @category.present?
   end
 end

@@ -2,11 +2,11 @@
 <header class="fixed top-0 left-0 w-full bg-amber-300 text-black z-20">
   <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     <!-- ロゴ (常にトップページに遷移) -->
-    <div class="flex items-end space-x-6">
+    <div class="flex space-x-6">
       <%= link_to "DrinkCollection", root_path, class: "text-2xl font-bold" %>
 
       <!-- ナビゲーション(画面サイズに関わらず常に表示) -->
-      <nav class="flex space-x-4">
+      <nav class="flex mt-1 space-x-4">
         <%= link_to "ビール", category_path(Category.find_by(name: "ビール").id), class: "hover:invert" %>
         <%= link_to "ワイン", category_path(Category.find_by(name: "ワイン").id), class: "hover:invert" %>
         <%= link_to "日本酒", category_path(Category.find_by(name: "日本酒").id), class: "hover:invert" %>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- ハンバーガーメニュー (画面サイズに関係なく適用) -->
-    <div class="relative">
+    <div class="relative mt-1">
       <button id="menu-toggle" class="text-black focus:outline-none">
         <!-- アイコン (Heroiconsを使用) -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
