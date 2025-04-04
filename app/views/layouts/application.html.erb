@@ -11,6 +11,12 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <meta property="og:title" content="DrinkCollection - お酒の掲示板">
+    <meta property="og:description" content="お酒の情報を共有し、あなたにぴったりの一杯を見つけよう！">
+    <meta property="og:image" content="<%= image_url('default-ogp.png') %>">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:type" content="website">
   </head>
 
   <body>
