@@ -13,7 +13,7 @@ module ApplicationHelper
       separator: '|',
       description: 'お酒好きや興味のある方にぴったりのwebアプリ!',
       keywords: 'お酒,飲み物,バー,カクテル,ビール',
-      canonical: request.original_url,
+      canonical: 'https://drinkcollection-1.onrender.com',
       noindex: !Rails.env.production?,
       
       og: {
@@ -21,7 +21,7 @@ module ApplicationHelper
         title: 'DrinkCollection',
         description: 'お酒好きや興味のある方にぴったりのwebアプリ!',
         type: 'website',
-        url: request.original_url,
+        url: 'https://drinkcollection-1.onrender.com',
         image: image_url('ogp-image.png'),
         locale: 'ja_JP',
       },
