@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_ogp, only: [:show]
 
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).page(params[:page]).per(20)
   end
 
   def new

@@ -9,7 +9,7 @@ module Admin
     end
 
     def index
-      @drinks = Drink.all
+      @drinks = Drink.all.page(params[:page]).per(20)
       render "drinks/index"
     end
 
