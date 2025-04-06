@@ -38,48 +38,32 @@
       <% end %>
     </div>
 
-    <!-- ハンバーガーメニュー (画面サイズに関係なく適用) -->
-    <div class="relative mt-1">
-      <button id="menu-toggle" class="text-black focus:outline-none">
-        <!-- アイコン (Heroiconsを使用) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-
-      <!-- メニュー内容 (デフォルトでは非表示) -->
-      <nav id="menu" class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
-        <ul class="flex flex-col space-y-2 p-2">
-          <li class="px-4 py-2">
-            <%= link_to "新規登録", new_user_path, class: "block text-black hover:bg-gray-100 rounded" %>
-          </li>
-          <li class="px-4 py-2">
-            <%= link_to t("header.login"), login_path, class: "block text-black hover:bg-gray-100 rounded" %>
-          </li>
-        </ul>
-      </nav>
+    <div class="navbar bg-white text-black z-50 relative">
+      <div class="navbar-start">
+        <div class="dropdown dropdown-left">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <!-- ハンバーガーアイコン -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </div>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52">
+            <li>
+              <%= link_to "新規登録", new_user_path, class: "text-black" %>
+            </li>
+            <li>
+              <%= link_to t("header.login"), login_path, class: "text-black" %>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <!-- ハンバーガーメニューの開閉を制御するJavaScript -->
-    <script>
-      document.addEventListener("turbo:load", function() {
-        const menuToggle = document.getElementById("menu-toggle");
-        const menu = document.getElementById("menu");
-
-        if (menuToggle && menu) {
-          menuToggle.addEventListener("click", function() {
-            menu.classList.toggle("hidden");
-          });
-
-          // メニュー外をクリックすると閉じる
-          document.addEventListener("click", function(event) {
-            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-              menu.classList.add("hidden");
-            }
-          });
-        }
-      });
-    </script>
   </div>
 </header>
 
