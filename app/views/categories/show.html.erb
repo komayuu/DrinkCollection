@@ -25,7 +25,7 @@
                   <%= link_to drink.name, drink_path(drink), class: "text-gray-800 hover:text-gray-600" %>
                 </h4>
                 <div class="flex space-x-2">
-                  <% if current_user.own?(drink) %>
+                  <% if current_user&.own?(drink) %>
                     <!-- 共有ボタン -->
                     <% share_url = drink_url(drink) %>
                     <% share_text = "#{drink.name} - #{drink.description}" %>
