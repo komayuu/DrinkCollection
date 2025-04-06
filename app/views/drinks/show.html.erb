@@ -7,9 +7,9 @@
   <div class="mb-3">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-2xl font-bold mb-5">投稿詳細</h1>
-      <article class="bg-white shadow-md rounded-lg overflow-hidden flex">
+      <article class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col">
         <!-- 画像 -->
-        <div class="w-48 h-48 flex-shrink-0">
+        <div class="w-full h-full flex-shrink-0">
           <%= image_tag @drink.drink_image_url, class: "w-full h-full object-cover block" %>
         </div>
         <!-- 詳細情報 -->

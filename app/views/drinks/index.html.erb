@@ -47,7 +47,7 @@
           <% end %>
         <% end %>
         <!-- 楽天アイテムの検索 -->
-        <% if @rakuten_items.any? %>
+        <% if @rakuten_items.present? %>
           <% @rakuten_items.each do |item| %>
             <div class="border rounded-lg p-4 shadow gap-4">
               <a href="<%= item["affiliateUrl"] || item["itemUrl"] %>" target="_blank">
