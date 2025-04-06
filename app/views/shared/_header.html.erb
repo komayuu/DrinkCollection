@@ -39,34 +39,32 @@
     </div>
 
     <!-- ハンバーガーメニュー（DaisyUI） -->
-    <div class="navbar text-black z-50 relative">
-      <div class="navbar-end">
-        <div class="dropdown dropdown-left">
-          <!-- ハンバーガーアイコン -->
-          <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </div>
-
-          <!-- メニュー項目 -->
-          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52 text-base">
-            <li>
-              <%= link_to t("header.create_post"), new_post_path, class: "text-black hover:bg-gray-100" %>
-            </li>
-            <li>
-              <%= link_to t("header.post_index"), posts_path, class: "text-black hover:bg-gray-100" %>
-            </li>
-            <li>
-              <%= link_to t("header.my_page"), mypage_path, class: "text-black hover:bg-gray-100" %>
-            </li>
-            <li>
-              <%= link_to t("header.logout"), logout_path, method: :delete, data: { turbo_method: "delete" },
-                    class: "text-black hover:bg-gray-100" %>
-            </li>
-          </ul>
+    <div class="text-black z-50 relative">
+      <div class="dropdown dropdown-left dropdown-bottom">
+        <!-- ハンバーガーアイコン -->
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </div>
+
+        <!-- メニュー項目 -->
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-40 text-base">
+          <li>
+            <%= link_to t("header.create_post"), new_post_path, class: "text-black hover:bg-gray-100" %>
+          </li>
+          <li>
+            <%= link_to t("header.post_index"), posts_path, class: "text-black hover:bg-gray-100" %>
+          </li>
+          <li>
+            <%= link_to t("header.my_page"), mypage_path, class: "text-black hover:bg-gray-100" %>
+          </li>
+          <li>
+            <%= link_to t("header.logout"), logout_path, method: :delete, data: { turbo_method: "delete" },
+                  class: "text-black hover:bg-gray-100" %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
