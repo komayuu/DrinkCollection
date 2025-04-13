@@ -21,7 +21,7 @@ module Admin
       @drink.category = category if category.present?
 
       if @drink.save
-        redirect_to admin_drinks_path, success: "新しいドリンクが追加されました。"
+        redirect_to category_path(@drink.category.name), success: "新しいドリンクが追加されました。"
       else
         flash.now[:alert] = @drink.errors.full_messages.join(", ")
         render :new, status: :unprocessable_entity
