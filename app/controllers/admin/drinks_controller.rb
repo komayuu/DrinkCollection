@@ -36,7 +36,7 @@ module Admin
       @drink = Drink.find(params[:id])
       
       if @drink.update(drink_params)
-        redirect_to admin_drinks_path, success: "ドリンク情報が更新されました。"
+        redirect_to category_path(@drink.category.name), success: "ドリンク情報が更新されました。"
       else
         flash.now[:alert] = @drink.errors.full_messages.join(", ")
         render :edit, status: :unprocessable_entity
